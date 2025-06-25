@@ -1,5 +1,3 @@
-// assets/tracking.js
-
 (function () {
   // クエリパラメータを取得
   const params = new URLSearchParams(window.location.search);
@@ -8,15 +6,27 @@
   const utmCampaign = params.get('utm_campaign') || 'unknown';
   const pagePath = window.location.pathname;
 
-  // dataLayerが未定義なら初期化
+  // dataLayer 初期化
   window.dataLayer = window.dataLayer || [];
 
-  // 🔑 すべての変数が揃った状態でイベントをpush
+  // GA4送信用イベントをpush（トリガーとして使用）
   window.dataLayer.push({
     source: utmSource,
     medium: utmMedium,
     campaign: utmCampaign,
     page_path: pagePath,
-    event: 'click_redirect'  // ← 最後に配置することでGTMが確実に値を取得
+    event: 'click_redirect' // ← トリガーは最後に！
+  });
+
+  // ✅ 2秒後にリダイレクト（順番保証のため tracking.js内で処理）
+  const redirectUrl = "https://www.youtube.com/watch?v=GJKuDaL9r84";
+  setTimeout(() => {
+    window.location.href = redirectUrl;
+  }, 2000);
+
+  // ✅ <a>タグのリンク先も設定
+  document.addEventListener('DOMContentLoaded', () => {
+    const link = document.getElementById("link");
+    if (link) link.href = redirectUrl;
   });
 })();
