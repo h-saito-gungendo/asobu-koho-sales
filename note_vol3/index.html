@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Note記事に転送しています…</title>
+
+  <!-- ✅ Google Tag Manager（head内） -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KGXCX25R');
+  </script>
+
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: sans-serif;
+      text-align: center;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ✅ GTM noscript（body内） -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KGXCX25R"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+
+  <p>Note記事を読み込み中です。<br>
+     自動で開かない場合は <a id="link" href="#">こちら</a> をクリックしてください。</p>
+
+  <!-- ✅ トラッキングJS（必要であれば） -->
+  <script src="/assets/tracking.js"></script>
+
+  <script>
+    const redirectUrl = "https://note.com/chiikikeiei/n/n882ead4c8fb8?sub_rt=share_sb";
+    setTimeout(() => {
+      window.location.href = redirectUrl;
+    }, 2000);
+    document.getElementById("link").href = redirectUrl;
+  </script>
+
+</body>
+</html>
+
